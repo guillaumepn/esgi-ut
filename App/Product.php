@@ -26,11 +26,6 @@ class Product
 		$this->name = $name;
 	}
 
-	public function setStatus($status)
-	{
-		$this->status = $status;
-	}
-
 	public function setOwner($user)
 	{
 		$this->owner = $user;
@@ -39,11 +34,6 @@ class Product
 	public function getName()
 	{
 		return $this->name;
-	}
-
-	public function getStatus()
-	{
-		return $this->status;
 	}
 
 	public function getOwner()

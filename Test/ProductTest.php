@@ -7,6 +7,13 @@ class ProductTest extends PHPUnit_Framework_TestCase
 
     private $product;
 
+    protected function setUp()
+    {
+        $mockedOwner = $this->getMock('User', array('isValid'));
+        $mockedOwner->expects($this->any())->method('isValid')->will($this->returnValue(true));
+
+        $this->product = new \App\Product("mon objet", $mockedOwner);
+    }
 
 	public function testIsValidNominal()
 	{
@@ -25,13 +32,6 @@ class ProductTest extends PHPUnit_Framework_TestCase
 		$this->assertFalse($result);
 	}
 
-    protected function setUp()
-    {
-        $mockedOwner = $this->getMock('User', array('isValid'));
-        $mockedOwner->expects($this->any())->method('isValid')->will($this->returnValue(true));
-
-        $this->product = new \App\Product("mon objet", $mockedOwner);
-    }
 
 	protected function tearDown()
 	{
